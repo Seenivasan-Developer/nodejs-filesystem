@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "98103a96-1234-4f36-a84e-6d7f6e7a960b",
+		"name": "nodejs-filesystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34958818"
+	},
+	"item": [
+		{
+			"name": "createFile",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Success</th>\r",
+							"        <th>Message</th>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>{{response.sucess}}</td>\r",
+							"        <td>{{response.message}}</td>\r",
+							"    </tr>\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()}\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://nodejs-filesystem-ytev.onrender.com/api/createfile",
+					"protocol": "https",
+					"host": [
+						"nodejs-filesystem-ytev",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"createfile"
+					]
+				},
+				"description": "The `POST /api/createfile` endpoint is used to create a file. Upon successful execution, the API returns a JSON response with a status code of 200 and the following schema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"sucess\": {\n      \"type\": \"boolean\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\"sucess\", \"message\"]\n}\n\n ```"
+			},
+			"response": [
+				{
+					"name": "createFile",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://nodejs-filesystem-ytev.onrender.com/api/createfile",
+							"protocol": "https",
+							"host": [
+								"nodejs-filesystem-ytev",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"createfile"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "readfiles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://nodejs-filesystem-ytev.onrender.com/api/readfiles",
+					"protocol": "https",
+					"host": [
+						"nodejs-filesystem-ytev",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"readfiles"
+					]
+				},
+				"description": "The `GET` request retrieves a list of files from the server. The response is in JSON format with a status code of 200. The response body includes a `success` boolean field indicating the success status of the request, and a `data` array containing objects with `fileName` and `data` fields. To document the response as a JSON schema, the schema for the `data` array can be defined as follows:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"success\": {\n      \"type\": \"boolean\"\n    },\n    \"FileDetails\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"fileName\": {\n            \"type\": \"string\"\n          },\n          \"data\": {\n            \"type\": \"string\"\n          }\n        }\n      }\n    }\n  }\n}\n\n ```"
+			},
+			"response": [
+				{
+					"name": "readfiles",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://nodejs-filesystem-ytev.onrender.com/api/readfiles",
+							"protocol": "https",
+							"host": [
+								"nodejs-filesystem-ytev",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"readfiles"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
